@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="br.com.alura.agenda.FormularioActivity">
+
+        <EditText
+            android:id="@+id/txtFormularioNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/nome" />
+
+        <EditText
+            android:id="@+id/txtFormularioEndereco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/endereco" />
+
+        <EditText
+            android:id="@+id/txtFormularioTelefone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/telefone" />
+
+        <EditText
+            android:id="@+id/txtFormularioSite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/site" />
+
+        <RatingBar
+            android:id="@+id/rattingFormularioNota"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:max="10"
+            android:numStars="5" />
+
+        <Button
+            android:id="@+id/btFormularioSalvar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/salvar" />
+
+    </LinearLayout>
+</ScrollView>

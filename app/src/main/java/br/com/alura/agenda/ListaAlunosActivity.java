@@ -16,7 +16,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
         ListView listaAlunos = (ListView) findViewById(R.id.lista_alunos);
 
         //Mock da lista de alunos
-        String[] alunos = {"Daniel", "Rafael", "Gabriel", "Gustavo", "Alan"};
+        String[] alunos = {"Rafael", "Gabriel", "Gustavo", "Alan"};
 
         //criação e associação do adapter que vai converter String para View
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, alunos);
