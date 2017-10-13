@@ -8,6 +8,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.util.List;
+
+import br.com.alura.agenda.dao.AlunoDAO;
+import br.com.alura.agenda.model.Aluno;
+
 public class ListaAlunosActivity extends AppCompatActivity {
 
     @Override
@@ -16,15 +21,21 @@ public class ListaAlunosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista_alunos);
 
         //Referência para as Views
-        ListView listaAlunos = (ListView) findViewById(R.id.lista_alunos);
         Button btNovoAluno = (Button) findViewById(R.id.btNovoAluno);
 
+        //TUDO DAQUI FOI PRO onResume()
         //Mock da lista de alunos
-        String[] alunos = {"Rafael", "Gabriel", "Gustavo", "Alan"};
+        //String[] alunos = {"Rafael", "Gabriel", "Gustavo", "Alan"};
 
-        //criação e associação do adapter que vai converter String para View
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, alunos);
-        listaAlunos.setAdapter(adapter);
+        //busca a lista de alunos do banco
+        //AlunoDAO dao = new AlunoDAO(this);
+        //List<Aluno> alunos = dao.buscaAlunos();
+        //dao.close();
+
+        //criação e associação do adapter que vai converter String/Aluno para View
+        //quando utilizando mock, trocar o Adapter para o tipo String e não Aluno
+        //ArrayAdapter<Aluno> adapter = new ArrayAdapter<Aluno>(this, android.R.layout.simple_list_item_1, alunos);
+        //listaAlunos.setAdapter(adapter);
 
         btNovoAluno.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,5 +46,21 @@ public class ListaAlunosActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        carregaLista();
+    }
+
+    public void carregaLista() {
+        AlunoDAO dao = new AlunoDAO(this);
+        List<Aluno> alunos = dao.buscaAlunos();
+        dao.close();
+
+        ListView listaAlunos = (ListView) findViewById(R.id.lista_alunos);
+        ArrayAdapter<Aluno> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, alunos);
+        listaAlunos.setAdapter(adapter);
     }
 }
