@@ -1,4 +1,4 @@
-package br.com.alura.agenda.dao;
+package br.com.alura.agenda.model.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
