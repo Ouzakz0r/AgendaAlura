@@ -9,4 +9,8 @@
     <string name="plusSimbol">+</string>
     <string name="ok">Ok</string>
     <string name="deletar">Deletar</string>
+    <string name="visitar_site">Visitar site</string>
+    <string name="ligar">Ligar</string>
+    <string name="sms">SMS</string>
+    <string name="maps">Maps</string>
 </resources>
